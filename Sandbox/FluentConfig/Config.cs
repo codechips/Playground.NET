@@ -7,39 +7,43 @@ namespace Sandbox.FluentConfig
 {
     public class Config
     {
-        IDictionary<string, IOption> workers;
+        IDictionary<string, IOption> options;
         public Config()
         {
-            SetupWorkers();
+            SetupOptions();
+            
             var config = Configure( reset => true, debug => true, amount => 10, start => DateTime.Now, delete => true );
+            
             Dispatch( config ); 
         }
-
-        void SetupWorkers()
+        
+        static IDictionary<string, object> Configure(params Expression<Func<string, object>>[] parameters)
         {
-            workers = new Dictionary<string, IOption>();
-            workers.Add( "reset", new ResetOption() );
-            workers.Add( "debug", new DebugOption() );
-            workers.Add( "amount", new AmountOption() );
+            var config = new Dictionary<string, object>();
+
+            foreach (var parameter in parameters)
+                config.Add(parameter.Parameters[0].Name, parameter.Compile().Invoke(string.Empty));
+
+            return config;
+        }
+        
+        void SetupOptions()
+        {
+            options = new Dictionary<string, IOption>();
+            options.Add( "reset", new ResetOption() );
+            options.Add( "debug", new DebugOption() );
+            options.Add( "amount", new AmountOption() );
         }
 
         void Dispatch( IDictionary<string, object> config )
         {
-            foreach( var option in config )
+            foreach( var c in config )
             {
-                if (workers.ContainsKey( option.Key ))
-                    workers[option.Key].Act( option.Value );
+                if (options.ContainsKey( c.Key ))
+                    options[c.Key].Act( c.Value );
             }
         }
 
-        static IDictionary<string,object> Configure(params Expression<Func<string, object>>[] parameters)
-        {
-            var options = new Dictionary<string, object>();
-           
-            foreach( var parameter in parameters )
-                options.Add( parameter.Parameters[0].Name, parameter.Compile().Invoke( string.Empty ) );
-
-            return options;
-        }
+       
     }
 }
