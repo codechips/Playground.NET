@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sandbox", "Sandbox\Sandbox.csproj", "{0A39B244-4CDD-4E4F-AE21-EA9A6F92BB32}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sandbox.Tests", "Sandbox.Tests\Sandbox.Tests.csproj", "{6788C4D0-1208-46FD-9861-D6A843B9C9C9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0A39B244-4CDD-4E4F-AE21-EA9A6F92BB32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A39B244-4CDD-4E4F-AE21-EA9A6F92BB32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A39B244-4CDD-4E4F-AE21-EA9A6F92BB32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A39B244-4CDD-4E4F-AE21-EA9A6F92BB32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6788C4D0-1208-46FD-9861-D6A843B9C9C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6788C4D0-1208-46FD-9861-D6A843B9C9C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6788C4D0-1208-46FD-9861-D6A843B9C9C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6788C4D0-1208-46FD-9861-D6A843B9C9C9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
